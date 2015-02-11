@@ -37,9 +37,20 @@ module.exports = function(grunt) {
                 }
             }
         },
+        simplemocha: {
+            options: {
+                globals: ['expect'],
+                timeout: 3000,
+                ignoreLeaks: false,
+                ui: 'bdd',
+                reporter: 'tap'
+            },
+            all: { src: ['tests/**/*.js'] }
+        }
 	});
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.registerTask('default', [ 'jshint','concat','uglify' ]);
+	grunt.loadNpmTasks('grunt-simple-mocha');
+	grunt.registerTask('default', [ 'jshint','simplemocha','concat','uglify' ]);
 };
