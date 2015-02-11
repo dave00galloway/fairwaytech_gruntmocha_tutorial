@@ -15,6 +15,12 @@ describe('subtract', function() {
 	});
 });
 
+describe('multiply', function() {
+	it('should return 6 when passed the params (3,2)', function() {
+		expect(math.multiply(3, 2)).to.equal(6);
+	});
+});
+
 //doesn't work when run globally... do we need to npm install chai?
 //davids-MacBook-Pro:fairwaytech_tutorial root# mocha tests
 //
